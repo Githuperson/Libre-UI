@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #ffffff;
+    color: #202124;
+}
+
+header {
+    padding: 22px 5%;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    color: #111111;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    max-width: 800px;
+}
+
+.search-bar input {
+    flex: 1;
+    height: 46px;
+    padding: 0 16px;
+    border: 1px solid #c9c9c9;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-bar input:focus {
+    border-color: #555555;
+}
+
+.search-bar button {
+    height: 46px;
+    padding: 0 22px;
+    border: 1px solid #222222;
+    background: #222222;
+    color: white;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.search-bar button:hover {
+    background: #444444;
+}
+
+main {
+    width: min(900px, 90%);
+    margin: 30px auto;
+}
+
+#status {
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.result {
+    margin-bottom: 28px;
+}
+
+.result-title {
+    margin: 0 0 4px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.result-title a {
+    color: #1457c5;
+    text-decoration: none;
+}
+
+.result-title a:hover {
+    text-decoration: underline;
+}
+
+.result-url {
+    color: #16803c;
+    font-size: 14px;
+    margin-bottom: 5px;
+    overflow-wrap: anywhere;
+}
+
+.result-description {
+    color: #444444;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 45px 0;
+}
+
+.pagination button {
+    padding: 9px 16px;
+    border: 1px solid #cccccc;
+    background: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background: #f3f3f3;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+#pageNumber {
+    color: #555555;
+}
+
+.error {
+    padding: 18px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+footer {
+    margin-top: 80px;
+    padding: 25px;
+    text-align: center;
+    color: #777777;
+    border-top: 1px solid #eeeeee;
+    font-size: 13px;
+}
+
+footer a {
+    color: inherit;
+}
+
+@media (max-width: 650px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .search-bar {
+        max-width: none;
+    }
+
+    .result-title {
+        font-size: 18px;
+    }
+}
