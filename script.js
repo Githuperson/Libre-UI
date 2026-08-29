@@ -1,4 +1,4 @@
-const url = "https://libre-ui.kkminerishere.workers.dev/api.php";
+const API_URL = "https://libre-ui.kkminerishere.workers.dev/api.php";
 
 const form = document.getElementById("searchForm");
 const input = document.getElementById("searchInput");
