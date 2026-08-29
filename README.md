@@ -1,2 +1,2 @@
 # Libre-UI
-Libre UI Is a search engine using LibreY's API, This Search engine also features a much simpler API than LibreY for ease of use. It features the same License
+Libre UI is an independent project and is not affiliated with or endorsed by the LibreY project. Libre UI uses the LibreY API to retrieve search results.
