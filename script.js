@@ -1,4 +1,4 @@
-const API_URL = "https://libre-ui-api.kkminerishere.workers.dev/api.php";
+const API_URL = "https://libre-y-theta.vercel.app/api.php";
 
 const form = document.getElementById("searchForm");
 const input = document.getElementById("searchInput");
@@ -40,14 +40,12 @@ async function search() {
     status.textContent = "Searching...";
     pagination.hidden = true;
 
-    // The Worker remains the API endpoint, but it now receives the Libre-y-style path:
-    // /api/search?q=...&p=...&t=...
     const params = new URLSearchParams({
         q: currentQuery,
         p: currentPage,
         t: 0
     });
-    const url = `${API_URL}/api/search?${params.toString()}`;
+    const url = `${API_URL}?${params.toString()}`;
 
     console.log("LibreY request:", url);
 
@@ -63,7 +61,7 @@ async function search() {
     } catch (error) {
         console.error(error);
         status.textContent = "";
-        resultsContainer.innerHTML = `<div class="error"><strong>Search failed.</strong><p>LibreY could not be reached.</p><p>Check the browser console for the exact error.</p></div>`;
+        resultsContainer.innerHTML = `<div class="error"><strong>Search failed.</strong><p>LibreY could not be reached directly.</p><p>Check the browser console for the exact error.</p></div>`;
     }
 }
 
