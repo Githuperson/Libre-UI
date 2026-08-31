@@ -20,13 +20,13 @@ function renderResults(data){resultsContainer.innerHTML="";const results=getResu
 async function renderAIOverview(results){
 const old=document.getElementById("aiOverview");if(old)old.remove();
 const card=document.createElement("section");card.id="aiOverview";card.className="ai-overview";
-card.innerHTML='<div class="ai-title"><span>✦</span> AI Overview</div><div class="ai-loading">Generating overview…</div>';
+card.innerHTML='<div class="ai-title"><span>◈</span> AI Overview</div><div class="ai-loading">Generating overview…</div>';
 resultsContainer.appendChild(card);
 try{
 const response=await fetch(AI_OVERVIEW_URL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({query:currentQuery,results:results.slice(0,6)})});
 if(!response.ok)throw new Error("AI overview unavailable");
 const data=await response.json();if(!data.overview)throw new Error("Empty overview");
-card.innerHTML='<div class="ai-title"><span>✦</span> AI Overview</div><div class="ai-text">'+escapeHTML(data.overview).replace(/\[(\d+)\]/g,"<sup>[$1]</sup>")+'</div>';
+card.innerHTML='<div class="ai-title"><span>◈</span> AI Overview</div><div class="ai-text">'+escapeHTML(data.overview).replace(/\[(\d+)\]/g,"<sup>[$1]</sup>")+'</div>';
 if(Array.isArray(data.sources)&&data.sources.length){const sources=document.createElement("div");sources.className="ai-sources";sources.innerHTML=data.sources.filter(x=>x&&x.title&&x.url).slice(0,4).map(x=>'<a href="'+escapeHTML(x.url)+'" target="_blank" rel="noopener noreferrer">['+x.number+'] '+escapeHTML(x.title)+'</a>').join("");card.appendChild(sources)}
 }catch(error){card.remove();console.warn("AI Overview unavailable:",error)}
 }
