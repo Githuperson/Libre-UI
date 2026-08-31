@@ -1,10 +1,9 @@
-const API_URL = "/api/search";
+const API_URL = "https://libre-ui-api.kkminerishere.workers.dev/api.php";
 
 const form = document.getElementById("searchForm");
 const input = document.getElementById("searchInput");
 const resultsContainer = document.getElementById("results");
 const status = document.getElementById("status");
-
 const pagination = document.getElementById("pagination");
 const previousButton = document.getElementById("previousButton");
 const nextButton = document.getElementById("nextButton");
@@ -41,12 +40,22 @@ async function search() {
     status.textContent = "Searching...";
     pagination.hidden = true;
 
-    const params = new URLSearchParams({ q: currentQuery, p: currentPage, t: 0 });
-    const url = `${API_URL}?${params.toString()}`;
+    // The Worker remains the API endpoint, but it now receives the Libre-y-style path:
+    // /api/search?q=...&p=...&t=...
+    const params = new URLSearchParams({
+        q: currentQuery,
+        p: currentPage,
+        t: 0
+    });
+    const url = `${API_URL}/api/search?${params.toString()}`;
+
     console.log("LibreY request:", url);
 
     try {
-        const response = await fetch(url, { headers: { Accept: "application/json" } });
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Accept": "application/json" }
+        });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         console.log("LibreY response:", data);
@@ -89,15 +98,12 @@ function getResultsArray(data) {
     if (Array.isArray(data.results)) return data.results;
     if (Array.isArray(data.data)) return data.data;
     if (Array.isArray(data.items)) return data.items;
-
-    // Libre-y's API returns numbered object keys: {"0": {...}, "1": {...}}
     if (data && typeof data === "object") {
         return Object.keys(data)
             .filter(key => /^\d+$/.test(key))
             .sort((a, b) => Number(a) - Number(b))
             .map(key => data[key]);
     }
-
     return [];
 }
 
