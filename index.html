@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-    <title>Libre UI — Search</title>
-    <meta name="description" content="Libre UI — a clean, privacy-friendly search interface powered by LibreY.">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#fff">
+<title>Libre UI — Search</title>
+<meta name="description" content="Libre UI — a privacy-friendly search engine powered by LibreY.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="page-shell">
-        <header class="site-header">
-            <a class="logo" href="./" aria-label="Libre UI home"><span class="logo-mark">L</span><span>Libre UI</span></a>
-            <form id="searchForm" class="search-bar" role="search">
-                <label class="sr-only" for="searchInput">Search the web</label>
-                <div class="search-input-wrap">
-                    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.15a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                    <input id="searchInput" type="search" placeholder="Search the web..." autocomplete="off" spellcheck="false" required>
-                    <button class="clear-button" id="clearButton" type="button" aria-label="Clear search" hidden>×</button>
-                </div>
-                <button class="search-button" type="submit">Search</button>
-            </form>
-        </header>
-        <main class="content">
-            <nav class="search-tabs" aria-label="Search type">
-                <button class="tab active" type="button" data-type="0">Web</button>
-                <button class="tab" type="button" data-type="1">Images</button>
-                <button class="tab" type="button" data-type="2">Videos</button>
-            </nav>
-            <div id="status" class="status" aria-live="polite"></div>
-            <div id="results" class="results"></div>
-            <div id="pagination" class="pagination" hidden>
-                <button id="previousButton" type="button">← Previous</button>
-                <span id="pageNumber"></span>
-                <button id="nextButton" type="button">Next →</button>
-            </div>
-        </main>
-        <footer class="site-footer"><span>Libre UI</span><span>·</span><a href="https://github.com/Ahwxorg/LibreY" target="_blank" rel="noopener noreferrer">Powered by LibreY</a></footer>
-    </div>
-    <script src="script.js"></script>
+<div class="page-shell">
+<header class="site-header">
+<a class="logo" href="./" aria-label="Libre UI home"><span class="logo-mark">L</span><span>Libre UI</span></a>
+<button id="themeButton" class="theme-button" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">☾</button>
+</header>
+<main class="content">
+<section id="home" class="home-page">
+<div class="home-logo"><span>Libre</span> <b>UI</b></div>
+<p class="tagline">A simpler way to search the web.</p>
+<form id="homeSearchForm" class="home-search" role="search">
+<label class="sr-only" for="homeSearchInput">Search the web</label>
+<div class="search-input-wrap"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.15a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="homeSearchInput" type="search" placeholder="Search the web" autocomplete="off" spellcheck="false" required></div>
+<button type="submit">Search</button>
+</form>
+<div class="home-actions"><button id="luckyButton" type="button">I'm Feeling Lucky</button></div>
+<p class="home-note">Powered by <a href="https://github.com/Ahwxorg/LibreY" target="_blank" rel="noopener noreferrer">LibreY</a></p>
+</section>
+<section id="resultsPage" class="results-page" hidden>
+<form id="searchForm" class="search-bar" role="search">
+<label class="sr-only" for="searchInput">Search the web</label>
+<div class="search-input-wrap"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.15a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="searchInput" type="search" placeholder="Search the web..." autocomplete="off" spellcheck="false" required><button class="clear-button" id="clearButton" type="button" aria-label="Clear search" hidden>×</button></div><button class="search-button" type="submit">Search</button>
+</form>
+<nav class="search-tabs" aria-label="Search type"><button class="tab active" type="button" data-type="0">Web</button><button class="tab" type="button" data-type="1">Images</button><button class="tab" type="button" data-type="2">Videos</button></nav>
+<div id="status" class="status" aria-live="polite"></div><div id="results" class="results"></div>
+<div id="pagination" class="pagination" hidden><button id="previousButton" type="button">← Previous</button><span id="pageNumber"></span><button id="nextButton" type="button">Next →</button></div>
+</section>
+</main>
+<footer class="site-footer"><span>Libre UI</span><span>·</span><a href="https://github.com/Githuperson/Libre-UI" target="_blank" rel="noopener noreferrer">Source</a><span>·</span><a href="https://github.com/Ahwxorg/LibreY" target="_blank" rel="noopener noreferrer">LibreY</a></footer>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
